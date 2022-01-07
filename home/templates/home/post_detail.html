@@ -1,0 +1,61 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+  <div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            
+            <h2>Detail Views</h2>
+            
+          </div>
+        </div>
+        
+        <div class="col-lg-10 offset-lg-1">
+          <ul class="categories">
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="popular-categories">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Be the woman you always want to be</h2>
+            <h6>check things out here</h6>
+          </div>
+        </div>
+      <!-- <div class="container"> -->
+         
+            <div class="card mb-5" style="width: 60%;">
+              <small class="text-muted" style="margin: 10px;">{{object.Administrators}} | {{ object.date_posted}}</small> <hr><br>
+                {% if posts.image %}
+                  <img class="card-img-top img-thumbnail" style="height: 400px; width:400px"  src="{{posts.image.url}}" alt="Card image cap">
+                {% endif %} 
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{object.title}}</h5> <br><hr>
+                <p class="card-text">{{object.cotent}}.</p>
+                {% if  object.Administrators == user%}
+                  <a href="{% url 'post_update' object.id %}"  class="btn btn-secondary">Update</a>
+                  <a href="{% url 'post_delete' object.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+                <br><br>
+                
+              </div>
+            </div>
+    
+    <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+ 

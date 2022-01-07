@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %}
+{% block content %}
+
+  <div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            
+            <h2>LIST OF ALL THE POSTS</h2>
+            {% comment %} <h6>The Alpha women initiative is a group of young girls who are not afraid of taking the lead, dreaming big and going for what they want. The initiative is to set up an indestructible 
+              mentality that they have every right to be rich and very successful in every quota of Life.</h6> {% endcomment %}
+          </div>
+        </div>
+        
+        <div class="col-lg-10 offset-lg-1">
+          <ul class="categories">
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="popular-categories">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Be the woman you always want to be</h2>
+            <h6>check things out here</h6>
+          </div>
+        </div>
+      <!-- <div class="container"> -->
+          {% for my_post in posts %}
+            <div class="card mb-5" style="width: 60%; padding:10px;">
+            <h6 class="text-muted">{{my_post.Administrators|title}} | {{ my_post.date_posted}}</h6><hr>
+                {% if my_post.image %}
+                  <img class="card-img-top" style="height: 300px;"  src="{{my_post.image.url}}" alt="Card image cap">
+                {% endif %}  
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{my_post.title}}</h5> <br><hr>
+                <p class="card-text">{{my_post.cotent}}.</p>
+                {% if  my_post.Administrators == user%}
+                    <a href="{% url 'post_detail'  my_post.id %}" class="btn btn-primary">{{my_post.Administrators|title}} | More</a><br><br>
+                {% endif %}
+                
+              </div>
+            </div>
+      {% endfor %}
+    <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+ 

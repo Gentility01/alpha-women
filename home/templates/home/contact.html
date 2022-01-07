@@ -1,0 +1,91 @@
+
+{% extends 'home/base.html' %}
+{% block content %}
+
+
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            <h6>Keep in touch with us</h6>
+            <h2>Feel free to send us a message.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner-content">
+            <div class="row">
+              <div class="col-lg-6">
+                <div id="map">
+                  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center">
+                                  {% if messages %}
+                                  {% for message in messages  %}
+                                    <div class="alert alert-{{message.tags}}">
+                                      {{message}}
+                                    </div>
+                                  {% endfor %}
+                                {% endif %}
+                  <form id="contact" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <!-- <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required> -->
+                        {{ form.first_name}}
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <!-- <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required> -->
+                        {{ form.last_name}}
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <!-- <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required=""> -->
+                        {{ form.email}}
+
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <ul>
+                        <!-- <li><input type="checkbox" name="option1" value="cars"><span>Male</span></li> -->
+                        <li>{{ form.male}}<span>Male</span></li>
+                        
+                        <!-- <li><input type="checkbox" name="option2" value="aparmtents"><span>Female</span></li> -->
+                        <li> {{ form.female}} <span>Female</span></li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <!-- <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  -->
+                        {{ form.message}} 
+                      </fieldset>
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane"></i> Send Message</button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content%}

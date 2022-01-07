@@ -1,0 +1,50 @@
+
+
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            {% comment %} <h6>Check Out Our Listings</h6> {% endcomment %}
+            <h2>Delete POST </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+<div class="form" style="margin-left: 90px;">
+    <div class="content-section col-6 ">
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Post </legend>
+                <h2> Are you sure you want to delete this post: "{{object.title}}" ?</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Yes,Delete</button>
+                <a href="{% url 'post_detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+
+            </div>
+        </form>
+        <br>
+        {% comment %} <div class="border-top pt-3">
+            <small class="text-muted">
+                No acco? <a class="ml-2" href="">log in here</a>
+            </small>
+        </div> {% endcomment %}
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+

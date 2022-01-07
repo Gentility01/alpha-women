@@ -1,0 +1,40 @@
+
+
+{% comment %} {% extends 'home/base.html' %} {% endcomment %}
+{% comment %} {% load static %} {% endcomment %}
+{% block content %}
+
+
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            {% comment %} <h6>Check Out Our Listings</h6> {% endcomment %}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+<div class="form" style="margin-left: 90px;">
+    <div class="content-section col-6 ">
+
+       
+        <div class="border-top pt-3">
+            <h2>You've been loged out </h2>
+            <small class="text-muted">
+                 <a class="ml-2" href="{% url 'login' %}">Log In Again</a>
+            </small>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+

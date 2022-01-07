@@ -1,0 +1,49 @@
+
+
+{% extends 'home/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="top-text header-text">
+            {% comment %} <h6>Check Out Our Listings</h6> {% endcomment %}
+            <h2>LOG IN </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+<div class="form" style="margin-left: 90px;">
+    <div class="content-section col-6 ">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Please login </legend>
+            {{ form | crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-primary" type="submit">Login Here</button><br>
+            </div>
+        </form>
+        <br>
+        {% comment %} <div class="border-top pt-3">
+            <small class="text-muted">
+                No acco? <a class="ml-2" href="">log in here</a>
+            </small>
+        </div> {% endcomment %}
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+
